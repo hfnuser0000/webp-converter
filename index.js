@@ -5,6 +5,7 @@ const fs    = require('fs');
 const express   = require('express');
 const crypto    = require('crypto');
 const axios = require('axios');
+const cors  = require('cors');
 
 const download_image = (url, image_path) =>
     axios({
@@ -23,7 +24,7 @@ const download_image = (url, image_path) =>
 
 const app = express();
 
-app.get('/webp', async(req, res) => {
+app.get('/webp', cors(), async(req, res) => {
     const imageURL = req.query.url;
     if(!imageURL) {
         return res.send('url required.');
