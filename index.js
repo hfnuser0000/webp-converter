@@ -7,6 +7,8 @@ const crypto    = require('crypto');
 const axios = require('axios');
 const cors  = require('cors');
 
+webp.grant_permission();
+
 const download_image = (url, image_path) =>
     axios({
         url,
